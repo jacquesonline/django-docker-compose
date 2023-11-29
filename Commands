@@ -6,3 +6,6 @@ docker-compose run --rm app sh -c "python manage.py startapp core"
 docker-compose run --rm app sh -c "python manage.py createsuperuser"
 docker-compose up 
 Check if the media files can be uploaded through the superuser admin portal
+docker-compose -f docker-compose-deploy.yml down --volumes
+docker-compose -f docker-compose-deploy.yml up
+docker-compose -f docker-compose-deploy.yml run --rm app sh -c "python manage.py createsuperuser"
