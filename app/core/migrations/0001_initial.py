@@ -20,7 +20,6 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=100)),
                 ('memo', models.TextField(blank=True)),
-                ('attachment', models.FileField(blank=True, upload_to='')),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('datecompleted', models.DateTimeField(blank=True, null=True)),
                 ('important', models.BooleanField(default=False)),

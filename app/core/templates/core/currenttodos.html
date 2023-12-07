@@ -20,7 +20,6 @@
                 <b>{{ todo.title }}</b>
                 {% if todo.memo %}
                 - {{ todo.memo|truncatechars:30 }}{% endif %}
-                {{ todo.attachment }}
             </a>
             {% endfor %}
         </div>
