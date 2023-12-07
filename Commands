@@ -17,3 +17,39 @@ docker-compose exec db psql --username=hero --dbname=django_dev_db
 \c django_dev_db
 \dt
 \q 
+ls -al ~/.ssh
+ssh-keygen -t ed25519 -C "j.c.steenkamp10@gmail.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+clip < ~/.ssh/id_ed25519.pub
+ssh -T git@github.com
+sudo yum install git -y
+sudo yum -y install docker
+sudo systemctl enable docker.service
+sudo systemctl start docker.service
+sudo usermod -aG docker ec2-user
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+# On EC2
+ssh-keygen -t ed25519 -b 4096
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM9f8YhYh0TjvPISKSL64T3QO5CwHFFJqbD0WAObdYgl ec2-user@ip-172-31-16-9.ap-southeast-2.compute.internal
+git config --list
+# docker-compose (latest version)
+$-> sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+# Fix permissions after download
+$-> sudo chmod +x /usr/local/bin/docker-compose
+# Verify success
+$-> docker-compose version
+
+cd django-docker-compose/
+docker-compose -f docker-compose-deploy.yml up -d
+docker-compose -f docker-compose-deploy.yml run --rm app sh -c "python manage.py createsuperuser"
+
+To deploy updates, follow these steps:
+
+Push the changes to GitHub.
+SSH to the server.
+Pull the changes using git pull.
+Run the following commands:
+docker-compose -f docker-compose-deploy.yml build app
+docker-compose -f docker-compose-deploy.yml up --no-deps -d app

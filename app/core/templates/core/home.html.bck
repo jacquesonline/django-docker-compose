@@ -19,8 +19,8 @@
     </div>
     <p>
         <br>
-        <img src="https://ec2tododjango.s3.ap-southeast-2.amazonaws.com/Spartan.jpg"
-            alt="AWS Spartan Django">
+        <img src="https://s3-ap-southeast-2.amazonaws.com/cloudformation-examples-ap-southeast-2/cloudformation_graphic.png"
+            alt="AWS CloudFormation Logo">
     </p>
 </div>
 
