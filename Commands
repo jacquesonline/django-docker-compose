@@ -49,6 +49,7 @@ To deploy updates, follow these steps:
 
 Push the changes to GitHub.
 SSH to the server.
+ssh ec2-user@ec2-13-54-147-28.ap-southeast-2.compute.amazonaws.com
 Pull the changes using git pull.
 Run the following commands:
 docker-compose -f docker-compose-deploy.yml build app
