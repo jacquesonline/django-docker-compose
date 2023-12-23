@@ -15,18 +15,6 @@ from .forms import TodoForm
 from .models import Todo
 
 
-"""
-Core views for app.
-"""
-
-
-@api_view(['GET'])
-def health_check(request):
-    """Returns successful response."""
-    return Response({'healthy': True})
-# Create your views here.
-
-
 @login_required
 def createtodo(request):
     if request.method == 'GET':
