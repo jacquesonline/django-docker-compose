@@ -1,5 +1,3 @@
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.shortcuts import render
@@ -13,6 +11,8 @@ from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
 from .forms import TodoForm
 from .models import Todo
+
+# Create your views here.
 
 
 @login_required
