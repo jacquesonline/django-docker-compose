@@ -23,6 +23,7 @@ from core import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     # New code
+    path('api/health-check/', views.health_check, name='health-check'),
     path('current/', views.currenttodos, name='currenttodos'),
     path('completed/', views.completedtodos, name='completedtodos'),
     path('todo/<int:todo_pk>/', views.viewtodo, name='viewtodo'),
